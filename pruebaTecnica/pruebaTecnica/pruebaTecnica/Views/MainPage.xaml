@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pruebaTecnica.Views.MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4"></RowDefinition>
+            <RowDefinition Height="4"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Entry Grid.Column="0" Grid.Row="0" Text="{Binding City}"></Entry>
+        <Entry Grid.Column="0" Grid.Row="1" Text="{Binding Country}"></Entry>
+        <Button Grid.Column="0" Grid.Row="2" Text="Insert" Command="{Binding InsertAddress}"></Button>
+
+        <ListView ItemsSource="{Binding ListAddress}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Country}"></Label>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding City}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+
+</ContentPage>
