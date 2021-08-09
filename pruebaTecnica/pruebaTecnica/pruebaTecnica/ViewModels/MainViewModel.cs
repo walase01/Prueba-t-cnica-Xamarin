@@ -15,11 +15,14 @@ namespace pruebaTecnica.ViewModels
         public string City { get; set; }
         public string Country { get; set; }
         public DelegateCommand InsertAddress { get; set; }
-
         public ObservableCollection<Address> ListAddress => new ObservableCollection<Address>(listAddress);
+
+        public ObservableCollection<Address> FullListAddress { get; set; } 
+
         public MainViewModel(IDatabaseService databaseService, IPageDialogService dialogService): base (databaseService,dialogService)
         {
             InsertAddress = new DelegateCommand(SaveAddress);
+            FullListAddress = ListAddress;
         }
 
         private async void SaveAddress()
@@ -32,6 +35,7 @@ namespace pruebaTecnica.ViewModels
                 address.Country = Country;
 
                 await dabaseService.InsertAddress(address);
+                await dialogService.DisplayAlertAsync("Confirm", "Correctly", "OK");
             }
             else
             {

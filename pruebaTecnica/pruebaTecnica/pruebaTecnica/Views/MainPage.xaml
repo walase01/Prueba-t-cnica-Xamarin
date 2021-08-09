@@ -4,9 +4,10 @@
              x:Class="pruebaTecnica.Views.MainPage">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4"></RowDefinition>
-            <RowDefinition Height="4"></RowDefinition>
-            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -17,7 +18,7 @@
         <Entry Grid.Column="0" Grid.Row="1" Text="{Binding Country}"></Entry>
         <Button Grid.Column="0" Grid.Row="2" Text="Insert" Command="{Binding InsertAddress}"></Button>
 
-        <ListView ItemsSource="{Binding ListAddress}">
+        <ListView Grid.Column="0" Grid.Row="3" ItemsSource="{Binding FullListAddress}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

@@ -19,7 +19,7 @@ namespace pruebaTecnica
         protected async override void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync($"NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"{NavigationConst.nav}/{NavigationConst.main}");
 
         }
 
@@ -29,8 +29,8 @@ namespace pruebaTecnica
 
             containerRegistry.RegisterInstance<IDatabaseService>(new DabaseService());
 
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage,MainViewModel>();
+            containerRegistry.RegisterForNavigation<NavigationPage>(NavigationConst.nav);
+            containerRegistry.RegisterForNavigation<MainPage,MainViewModel>(NavigationConst.main);
         }
     }
 }
